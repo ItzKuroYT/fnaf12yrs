@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fnaf-12years.iconrealms.net/sitemap.xml

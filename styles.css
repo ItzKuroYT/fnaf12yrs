@@ -1,0 +1,261 @@
+:root {
+  color-scheme: dark;
+  --bg: #080707;
+  --ink: #fff7ec;
+  --muted: #c8bbb0;
+  --red: #e0302d;
+  --gold: #d6a33c;
+  --line: rgba(255, 247, 236, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--bg);
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at 50% 0%, rgba(224, 48, 45, 0.16), transparent 34%), var(--bg);
+  color: var(--ink);
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.site-shell {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  min-height: 86vh;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hero__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(90deg, rgba(8, 7, 7, 0.96) 0%, rgba(8, 7, 7, 0.42) 38%, rgba(8, 7, 7, 0.78) 100%),
+    linear-gradient(180deg, transparent 68%, var(--bg) 100%),
+    url("assets/hero-12yrs-fnaf.png");
+  background-position: center;
+  background-size: cover;
+  transform: scale(1.02);
+}
+
+.hero::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.035) 0,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px,
+      transparent 7px
+    );
+  mix-blend-mode: screen;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.hero__content {
+  width: min(1080px, calc(100% - 40px));
+  margin: auto;
+  padding: 96px 0 72px;
+}
+
+.kicker {
+  margin: 0 0 14px;
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1 {
+  max-width: 760px;
+  margin: 0;
+  font-size: clamp(4.2rem, 14vw, 9.5rem);
+  line-height: 0.82;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  text-wrap: balance;
+  text-shadow: 0 8px 28px rgba(0, 0, 0, 0.68);
+}
+
+.hero__copy {
+  max-width: 520px;
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.65;
+}
+
+.redirect-panel {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 30px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(8, 7, 7, 0.58);
+  box-shadow: 0 18px 80px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(14px);
+}
+
+.status-dot {
+  flex: 0 0 auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--red);
+  box-shadow: 0 0 22px rgba(224, 48, 45, 0.9);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+#redirect-copy {
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
+#countdown {
+  color: var(--ink);
+}
+
+.direct-link {
+  flex: 0 0 auto;
+  min-height: 40px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  background: var(--ink);
+  color: #15100d;
+  font-size: 0.94rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.direct-link:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) repeat(2, minmax(180px, 0.55fr));
+  gap: 16px;
+  width: min(1120px, calc(100% - 40px));
+  margin: -46px auto 56px;
+  position: relative;
+  z-index: 2;
+}
+
+.gallery__item {
+  min-height: 220px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #15100d;
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.44);
+}
+
+.gallery__item--wide {
+  min-height: 300px;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.88);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    min-height: 82vh;
+  }
+
+  .hero__backdrop {
+    background-image:
+      linear-gradient(180deg, rgba(8, 7, 7, 0.52) 0%, rgba(8, 7, 7, 0.86) 58%, var(--bg) 100%),
+      url("assets/hero-12yrs-fnaf.png");
+    background-position: 56% center;
+  }
+
+  .hero__content {
+    width: min(100% - 28px, 640px);
+    padding: 72px 0 56px;
+  }
+
+  h1 {
+    font-size: clamp(3.3rem, 24vw, 5.8rem);
+  }
+
+  .hero__copy {
+    font-size: 1rem;
+  }
+
+  .redirect-panel {
+    align-items: stretch;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  #redirect-copy {
+    flex: 1 1 150px;
+    align-self: center;
+  }
+
+  .direct-link {
+    flex: 1 1 120px;
+    text-align: center;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    margin-top: -28px;
+  }
+
+  .gallery__item,
+  .gallery__item--wide {
+    min-height: auto;
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

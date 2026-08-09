@@ -1,0 +1,17 @@
+{
+  "name": "12yrs of FNAF",
+  "short_name": "12yrs FNAF",
+  "description": "A cinematic 12yrs of FNAF fan anniversary splash page.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#080707",
+  "theme_color": "#0b0909",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
